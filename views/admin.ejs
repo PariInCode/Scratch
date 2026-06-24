@@ -1,0 +1,90 @@
+<%- include('./partials/header') %>
+
+<% if(success.length > 0){ %>
+<div class="absolute top-5 left-1/2 -translate-x-1/2 p-3 rounded-md bg-blue-500">
+    <span class="text-white">
+        <%= success %>
+    </span>
+</div>
+<% } %>
+
+<div class="w-full min-h-screen flex px-20 py-20">
+
+    <!-- Sidebar -->
+    <div class="w-[25%]">
+        <h1 class="text-3xl font-bold mb-8">
+            Admin Panel
+        </h1>
+
+        <div class="flex flex-col gap-3">
+            <a href="/products/create" class="text-blue-500">
+                Create Product
+            </a>
+
+            <a href="/products" class="text-blue-500">
+                View Products
+            </a>
+
+            <a href="/orders" class="text-blue-500">
+                Orders
+            </a>
+
+            <a href="/payments" class="text-blue-500">
+                Payments
+            </a>
+
+            <a href="/logout" class="text-red-500">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="w-[75%]">
+
+        <h1 class="text-4xl font-bold mb-10">
+            Welcome Admin
+        </h1>
+
+        <!-- Admin Details -->
+        <div class="bg-white shadow rounded p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">
+                Admin Details
+            </h2>
+
+            <p><strong>Name:</strong> <%= owner.fullname %></p>
+            <p><strong>Email:</strong> <%= owner.email %></p>
+            <p><strong>GSTIN:</strong> <%= owner.gstin || "Not Added" %></p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="grid grid-cols-3 gap-5">
+
+            <div class="bg-blue-500 text-white p-6 rounded">
+                <h2 class="text-3xl font-bold">
+                    <%= products.length %>
+                </h2>
+                <p>Total Products</p>
+            </div>
+
+            <div class="bg-green-500 text-white p-6 rounded">
+                <h2 class="text-3xl font-bold">
+                    <%= orders.length %>
+                </h2>
+                <p>Total Orders</p>
+            </div>
+
+            <div class="bg-purple-500 text-white p-6 rounded">
+                <h2 class="text-3xl font-bold">
+                    ₹ <%= revenue %>
+                </h2>
+                <p>Total Revenue</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('./partials/footer') %>

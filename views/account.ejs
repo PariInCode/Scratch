@@ -1,0 +1,91 @@
+<%- include('./partials/header') %>
+    <div class="min-h-screen bg-gray-100 py-10">
+    <div class="max-w-5xl mx-auto px-4">
+
+        <!-- Profile Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white shadow-lg">
+            <div class="flex items-center gap-5">
+                <div class="w-20 h-20 rounded-full bg-white text-blue-700 flex items-center justify-center text-3xl font-bold">
+                    <%= user.fullname.charAt(0).toUpperCase() %>
+                </div>
+
+                <div>
+                    <h1 class="text-3xl font-bold">
+                        <%= user.fullname %>
+                    </h1>
+                    <p class="text-blue-100">
+                        <%= user.email %>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <h2 class="text-gray-500 text-sm">Orders</h2>
+                <p class="text-3xl font-bold text-blue-600">
+                    <%= user.orders.length %>
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <h2 class="text-gray-500 text-sm">Cart Items</h2>
+                <p class="text-3xl font-bold text-green-600">
+                    <%= user.cart.length %>
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-6">
+                <h2 class="text-gray-500 text-sm">Contact</h2>
+                <p class="text-lg font-semibold">
+                    <%= user.contact || "Not Added" %>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Account Details -->
+        <div class="bg-white rounded-xl shadow mt-8 p-6">
+            <h2 class="text-2xl font-bold mb-5">
+                Account Details
+            </h2>
+
+            <div class="space-y-4">
+
+                <div class="flex justify-between border-b pb-3">
+                    <span class="font-semibold">Full Name</span>
+                    <span><%= user.fullname %></span>
+                </div>
+
+                <div class="flex justify-between border-b pb-3">
+                    <span class="font-semibold">Email</span>
+                    <span><%= user.email %></span>
+                </div>
+
+                <div class="flex justify-between border-b pb-3">
+                    <span class="font-semibold">Contact</span>
+                    <span>
+                        <%= user.contact || "Not Added" %>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="mt-6 flex gap-4">
+                <a href="/cart"
+                   class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
+                    View Cart
+                </a>
+
+                <a href="/logout"
+                   class="bg-red-500 text-white px-5 py-2 rounded-lg hover:bg-red-600">
+                    Logout
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<%- include('./partials/footer') %>
