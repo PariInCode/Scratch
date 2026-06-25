@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken")
 const ownerModel = require("../models/ownermodel")
 
 module.exports  = function isOwner(req,res,next){
-
+  
     let token = req.cookies.token;
 
     if(!token){
